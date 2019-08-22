@@ -36,10 +36,10 @@ class BackendClient:
 
 
     def get_rom_names(self):
-        # Search through directory for wbfs files (Wii roms)
+        # Search through directory for gcm, iso, gcz, ciso, and wbfs files (Wii roms)
         for root, dirs, files in os.walk(user_config.roms_path):
             for file in files:
-               if file.endswith(".wbfs"):
+               if file.endswith((".gcm", ".iso", ".gcz", ".ciso", ".wbfs")):
                     self.paths.append([os.path.join(root, file)])
                     self.roms.append(os.path.splitext(os.path.basename(file))[0]) # Split name of file from it's path/extension
 
